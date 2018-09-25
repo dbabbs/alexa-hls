@@ -59,7 +59,7 @@ On the left hand sidebar, you should see a button that says `JSON Editor`. Go ah
 
 Go ahead an paste the following JSON within the text field:
 
-```
+```json
 {
     "interactionModel": {
         "languageModel": {
@@ -150,7 +150,7 @@ The code that's already included comes from an example skill. This code is a goo
 
 First things first, let's include our HERE keys and helper conversion variable.
 
-```
+```javascript
 const here = {
    id: 'YOUR-HERE-ID',
    code: 'YOUR-HERE-CODE'
@@ -161,7 +161,7 @@ const metersToMiles = 0.00062137
 
 Additionally, we'll be making HTTP requests, so let's include a helper method that will assist us with that.
 
-```
+```javascript
 const http = require('http');
 
 function makeRequest(options) {
@@ -189,7 +189,7 @@ The `http` module is already included, so no extra steps to install it are neces
 
 Next, let's simplify the `LaunchRequestHandler` to fit our needs.
 
-```
+```javascript
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
@@ -206,7 +206,7 @@ const LaunchRequestHandler = {
 
 Now, let's get to the fun part: implementing HERE Location Services. Replace the `RecipeHandler` with this new `SearchHandler`, which handles our search logic.
 
-```
+```javascript
 const SearchHandler = {
    canHandle(handlerInput) {
       return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
@@ -264,7 +264,7 @@ What's going on here?
 
 You'll also want to modify the `export` at the end of the code to include the newly added `SearchHandler`.
 
-```
+```javascript
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
@@ -342,7 +342,7 @@ This is just a basic example of what can be done with HERE Location Services, ta
 
 ## Appendix: Complete Lambda Function Code block
 
-```
+```javascript
 const Alexa = require('ask-sdk-core');
 const http = require('http');
 
