@@ -1,4 +1,4 @@
-# Location-aware Alexa skills with HERE Location Services
+# Location-aware Alexa Skills with HERE Location Services
 
 
 ## Introduction
