@@ -15,15 +15,22 @@ At the end of this tutorial, you will have created an Alexa Skill in which you c
 
 This codelab demonstrates the use of two HERE Location Services APIs: [Geocoder](https://developer.here.com/documentation/geocoder/topics/quick-start-geocode.html) and [Places](https://developer.here.com/documentation/places/topics/quick-start-find-text-string.html).
 
+### __Use cases for places search__ ###
+
+As an Alexa application developer, you may want to integrate a places search if you are building:
+* A restaurant reviewing application. Users can search for nearby restaurants and then write reviews about the restaurant.
+* A ridesharing application. A place can serve as an origin or destination point for the trip.
+* A tour guide application. The virtual tour guide can suggest landmarks to visit in the user's area.
+
 ### __What is the Geocoder API?__
 
 The Geocoder REST API enables developers to convert street addresses to geo-coordinates and vice-versa with forward geocoding, including landmarks, and reverse geocoding.
 
 The HERE Geocoder API is a REST API that allows you to:
 
-* Obtain geocoordinates for addresses
+* Obtain coordinates for addresses
 * Obtain addresses or administrative areas for locations
-* Obtain geocoordinates for known landmarks.
+* Obtain coordinates for known landmarks.
 
 ### __What is the Places API?__
 
@@ -46,7 +53,7 @@ Once you are inside of the Alexa Skills Console, navigate to the `Skills` page, 
 
 ![creating a new skill](/img/0.png)
 
-Give your skill a name. I named my *HERE Places on Alexa*. Feel free to choose your own name. Choose a custom model and start from scratch.
+Give your skill a name. I named mine *HERE Places on Alexa*. Feel free to choose your own name. Choose a custom model and start from scratch.
 
 You should now be presented with your skill's console page:
 ![console page](/img/1.png)
@@ -162,11 +169,11 @@ const metersToMiles = 0.00062137
 Additionally, we'll be making HTTP requests, so let's include a helper method that will assist us with that.
 
 ```javascript
-const http = require('http');
+const https = require('https');
 
 function makeRequest(options) {
    return new Promise(((resolve, reject) => {
-      const request = http.request(options, (response) => {
+      const request = https.request(options, (response) => {
          let data = '';
          response.on('data', (chunk) => {
             data += chunk;
@@ -185,7 +192,7 @@ function makeRequest(options) {
    }));
 }
 ```
-The `http` module is already included, so no extra steps to install it are necessary.
+The `https` module is already included, so no extra steps to install it are necessary.
 
 Next, let's simplify the `LaunchRequestHandler` to fit our needs.
 
@@ -344,7 +351,7 @@ This is just a basic example of what can be done with HERE Location Services, ta
 
 ```javascript
 const Alexa = require('ask-sdk-core');
-const http = require('http');
+const https = require('https');
 
 const metersToMiles = 0.00062137
 
@@ -355,7 +362,7 @@ const here = {
 
 function makeRequest(options) {
    return new Promise(((resolve, reject) => {
-      const request = http.request(options, (response) => {
+      const request = https.request(options, (response) => {
          let data = '';
          response.on('data', (chunk) => {
             data += chunk;
