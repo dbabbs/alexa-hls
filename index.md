@@ -39,7 +39,7 @@ The Places (Search) API is a REST API that allows you to build applications wher
 
 ### __What you'll need__
 
-* a [HERE Developer](https://developer.here.com/) account for leveraging location APIs
+* a [HERE Developer](https://aws.amazon.com/marketplace/pp/B07JPLG9SR) account from the AWS Marketplace for leveraging location APIs
 * an [Amazon Web Services](https://aws.amazon.com/) account to host your project code
 * an [Amazon Alexa Developer](https://developer.amazon.com/alexa) account to configure your Alexa Skill
 
@@ -146,7 +146,7 @@ Once the resource has been deployed (you can confirm this by seeing a `CREATE_CO
 
 In the previous step, we created an AWS Lambda function to host and execute our skill's logic.
 
-Before we start writing code, let's head over to the [HERE Developer portal](https://developer.here.com/) to grab our application's keys. Sign in and create a new project.
+Before we start writing code, let's head over to the [AWS Marketplace](https://aws.amazon.com/marketplace/pp/B07JPLG9SR) to grab our application's keys. Sign up and create a new project inside the marketplace.
 
 Under the JavaScript/REST section, click `Generate App ID and App Code`. Grab and save these keys, we'll be using them shortly.
 
